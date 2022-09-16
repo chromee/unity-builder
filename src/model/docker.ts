@@ -46,6 +46,7 @@ class Docker {
             --volume "${actionFolder}/platforms/ubuntu/steps:/steps:z" \
             --volume "${actionFolder}/platforms/ubuntu/entrypoint.sh:/entrypoint.sh:z" \
             ${sshAgent ? `--volume ${sshAgent}:/ssh-agent` : ''} \
+            ${sshAgent ? `--volume ${homedir}/.ssh/config:/root/.ssh/config:ro` : ''} \
             ${sshAgent ? `--volume ${homedir}/.ssh/known_hosts:/root/.ssh/known_hosts:ro` : ''} \
             ${sshAgent ? keys : ''} \
             ${sshAgent ? `--volume ${homedir}/.gitconfig:/root/.gitconfig:ro` : ''} \
